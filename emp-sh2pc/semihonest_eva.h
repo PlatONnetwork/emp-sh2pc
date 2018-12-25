@@ -8,12 +8,12 @@ template<typename IO>
 class SemiHonestEva: public ProtocolExecution {
 public:
 	IO* io = nullptr;
-	SHOTExtension<IO>* ot;
+	SHOTExtension* ot;
 	HalfGateEva<IO> * gc;
 	PRG shared_prg;
 	SemiHonestEva(IO *io, HalfGateEva<IO> * gc): ProtocolExecution(BOB) {
 		this->io = io;
-		ot = new SHOTExtension<IO>(io);
+		ot = new SHOTExtension(io);
 		this->gc = gc;	
 		block seed; io->recv_block(&seed, 1);
 		shared_prg.reseed(&seed);

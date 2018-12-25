@@ -4,6 +4,10 @@ using namespace std;
 NetIO * io;
 int party;
 
+#ifdef OT_NP_USE_MIRACL
+#include "emp-tool/utils/sm2_params.h"
+#endif//
+
 void test_bit() {
 	bool b[] = {true, false};
 	int p[] = {PUBLIC, ALICE, BOB};
@@ -78,6 +82,10 @@ void test_bit() {
 int main(int argc, char** argv) {
 	int port;
 	parse_party_and_port(argv, &party, &port);
+
+#ifdef OT_NP_USE_MIRACL
+	SM2_Init();
+#endif//
 	io = new NetIO(party==ALICE?nullptr:"127.0.0.1", port);
 	setup_semi_honest(io, party);
 	test_bit();

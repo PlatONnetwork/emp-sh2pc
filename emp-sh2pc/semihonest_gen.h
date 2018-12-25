@@ -9,12 +9,12 @@ template<typename IO>
 class SemiHonestGen: public ProtocolExecution {
 public:
 	IO* io;
-	SHOTExtension<IO> * ot;
+	SHOTExtension * ot;
 	PRG prg, shared_prg;
 	HalfGateGen<IO> * gc;
 	SemiHonestGen(IO* io, HalfGateGen<IO>* gc): ProtocolExecution(ALICE) {
 		this->io = io;
-		ot = new SHOTExtension<IO>(io);
+		ot = new SHOTExtension(io);
 		this->gc = gc;	
 		block seed;prg.random_block(&seed, 1);
 		io->send_block(&seed, 1);
