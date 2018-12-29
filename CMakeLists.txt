@@ -1,4 +1,8 @@
 cmake_minimum_required (VERSION 3.0)
+if(POLICY CMP0054)
+	 cmake_policy(SET CMP0054 NEW)
+endif()
+
 project (emp-sh2pc)
 set(NAME "emp-sh2pc")
 set (CMAKE_CXX_STANDARD 11) 
@@ -94,6 +98,7 @@ macro (emp_sh2pc_test _name)
 			target_link_libraries(emp_sh2pc_${_name} ${OPENSSL_LIBRARIES} ${LIB_PROTOBUF} emp-tool_static)
 		endif()
 	endif()
+	SET_TARGET_PROPERTIES(emp_sh2pc_${_name} PROPERTIES FOLDER "emp-tool-test")
 endmacro()
 
 # Tests
