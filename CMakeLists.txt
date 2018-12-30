@@ -7,6 +7,9 @@ project (emp-sh2pc)
 set(NAME "emp-sh2pc")
 set (CMAKE_CXX_STANDARD 11) 
 
+if (WIN32)
+	ADD_DEFINITIONS(-DEMP_MPC_STATIC=1)
+endif()
 
 SET(CURRENT_DIR ${CMAKE_CURRENT_SOURCE_DIR})
 SET(EMP_TOOL_CMAKE ${CURRENT_DIR}/../emp-tool/cmake)
@@ -98,7 +101,7 @@ macro (emp_sh2pc_test _name)
 			target_link_libraries(emp_sh2pc_${_name} ${OPENSSL_LIBRARIES} ${LIB_PROTOBUF} emp-tool_static)
 		endif()
 	endif()
-	SET_TARGET_PROPERTIES(emp_sh2pc_${_name} PROPERTIES FOLDER "emp-tool-test")
+	SET_TARGET_PROPERTIES(emp_sh2pc_${_name} PROPERTIES FOLDER "emp-toolkit-test")
 endmacro()
 
 # Tests
