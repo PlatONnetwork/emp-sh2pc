@@ -1,5 +1,6 @@
 #include "emp-sh2pc/emp-sh2pc.h"
-
+#include "integer.h"
+#include "batcher.h"
 #ifdef OT_NP_USE_MIRACL
 #include "emp-tool/utils/sm2_params.h"
 #endif//

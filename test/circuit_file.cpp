@@ -1,4 +1,6 @@
 #include "emp-sh2pc/emp-sh2pc.h"
+#include "emp-tool/circuits/circuit_file.h"
+#include "integer.h"
 using namespace emp;
 using namespace std;
 
