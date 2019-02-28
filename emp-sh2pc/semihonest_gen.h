@@ -1,7 +1,11 @@
 #ifndef SEMIHONEST_GEN_H__
 #define SEMIHONEST_GEN_H__
-#include <emp-tool/emp-tool.h>
-#include <emp-ot/emp-ot.h>
+#include "emp-tool/utils/prg.h"
+#include "emp-tool/gc/halfgate_gen.h"
+#include "emp-tool/execution/protocol_execution.h"
+#include "emp-tool/execution/circuit_execution.h"
+#include "emp-tool/gc/halfgate_gen.h"
+#include "emp-ot/shextension.h"
 #include <iostream>
 
 namespace emp {
