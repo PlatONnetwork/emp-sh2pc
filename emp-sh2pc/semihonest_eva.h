@@ -1,7 +1,10 @@
 #ifndef SEMIHONEST_EVA_H__
 #define SEMIHONEST_EVA_H__
-#include <emp-tool/emp-tool.h>
-#include <emp-ot/emp-ot.h>
+#include "emp-tool/utils/prg.h"
+#include "emp-tool/execution/protocol_execution.h"
+#include "emp-tool/execution/circuit_execution.h"
+#include "emp-tool/gc/halfgate_eva.h"
+#include "emp-ot/shextension.h"
 
 namespace emp {
 template<typename IO>

@@ -1,7 +1,11 @@
 #ifndef SEMIHONEST_H__
 #define SEMIHONEST_H__
-#include "emp-sh2pc/semihonest_gen.h"
+
+#include "emp-tool/gc/halfgate_eva.h"
+#include "emp-tool/gc/halfgate_gen.h"
 #include "emp-sh2pc/semihonest_eva.h"
+#include "emp-sh2pc/semihonest_gen.h"
+#include "emp-tool/execution/protocol_execution.h"
 
 #ifdef OT_NP_USE_MIRACL
 #include "emp-tool/utils/sm2_params.h"
@@ -21,19 +25,19 @@ inline void setup_semi_honest(IO* io, int party) {
 
 	if(party == ALICE) {
 		HalfGateGen<IO> * t = new HalfGateGen<IO>(io);
-		CircuitExecutionProxy::circ_exec.setup(t);
-		ProtocolExecutionProxy::prot_exec.setup(new SemiHonestGen<IO>(io, t));
+		CircuitExecutionProxy::setup(t);
+		ProtocolExecutionProxy::setup(new SemiHonestGen<IO>(io, t));
 	} else {
 		HalfGateEva<IO> * t = new HalfGateEva<IO>(io);
-		CircuitExecutionProxy::circ_exec.setup(t);
-		ProtocolExecutionProxy::prot_exec.setup(new SemiHonestEva<IO>(io, t));
+		CircuitExecutionProxy::setup(t);
+		ProtocolExecutionProxy::setup(new SemiHonestEva<IO>(io, t));
 	}
 }
 
 template<typename IO>
 inline void finalize_semi_honest(IO* io, int party) {
-	ProtocolExecutionProxy::prot_exec.finalize();
-	CircuitExecutionProxy::circ_exec.finalize();
+	ProtocolExecutionProxy::finalize();
+	CircuitExecutionProxy::finalize();
 }
 }
 #endif

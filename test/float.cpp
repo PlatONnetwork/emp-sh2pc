@@ -1,5 +1,8 @@
 #include <typeinfo>
 #include "emp-sh2pc/emp-sh2pc.h"
+#include "float_circuit.h"
+#include "emp-tool/utils/prg.h"
+#include <cassert>
 
 #ifdef OT_NP_USE_MIRACL
 #include "emp-tool/utils/sm2_params.h"
